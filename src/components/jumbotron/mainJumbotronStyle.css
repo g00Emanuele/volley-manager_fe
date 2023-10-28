@@ -1,0 +1,26 @@
+.jumbotron {
+  background-color: #000103;
+}
+
+.jumbotron-text {
+    color: aliceblue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.jumbotron-text h1 {
+    font-size: 3em;
+}
+
+.jumbotron-text span {
+    font-size: 1.5em;
+}
+
+.btn-warning{
+    background-color: rgb(255, 145, 0);
+    color: aliceblue;
+}
