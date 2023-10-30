@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import {Nav} from 'react-bootstrap'
 
 
 const SignupForm = () => {
@@ -11,9 +12,9 @@ const SignupForm = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-      <a onClick={handleShow}>
+      <Nav.Link onClick={handleShow}>
         Sign up
-      </a>
+      </Nav.Link>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

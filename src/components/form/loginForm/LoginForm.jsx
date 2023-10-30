@@ -4,12 +4,14 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import {Nav} from 'react-bootstrap'
 
 const LoginForm = () => {
   const [show, setShow] = useState(false);
   const [loginData, setLoginData] = useState({});
   const [login, setLogin] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [athlete, setAthlete] = useState('loginAthlete');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,12 +25,17 @@ const LoginForm = () => {
     });
   };
 
+  const handleSelect = (e) => {
+    setAthlete(e.target.value)
+    console.log(athlete)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/loginAthlete`,
+        `${process.env.REACT_APP_BASE_URL}/${athlete}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -40,24 +47,37 @@ const LoginForm = () => {
       const data = await response.json();
       if (data.token) {
         localStorage.setItem("loggedInUser", JSON.stringify(data.token));
-        navigate("/athleteprivatepage");
+        navigate(`/${athlete}`);
       }
       setLogin(data);
       console.log(data);
     } catch (error) {
       if (error) console.log(error);
     }
-  };
+
+    handleClose()
+  }; 
   return (
     <>
-      <a onClick={handleShow}>Log in Athlete</a>
+      <Nav.Link onClick={handleShow}>Log in</Nav.Link>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Login Athlete</Modal.Title>
+          <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
+            <Form.Select onChange={handleSelect}>
+              <option
+                value="loginAthlete"
+              >
+                Atleta
+              </option>
+              <option value="loginTeam">
+                Squadra
+              </option>
+            </Form.Select>
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control

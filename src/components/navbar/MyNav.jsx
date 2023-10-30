@@ -8,6 +8,11 @@ import LoginForm from "../form/loginForm/LoginForm";
 import SignupForm from "../form/signupForm/SignupForm";
 
 const MyNav = () => {
+
+  const handleLogOut = () => {
+    localStorage.clear();
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -16,13 +21,9 @@ const MyNav = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link>
               <SignupForm />
-            </Nav.Link>
-            <Nav.Link>
               <LoginForm />
-            </Nav.Link>
-            <Nav.Link href="#link">Log out</Nav.Link>
+            <Nav.Link href="/" onClick={handleLogOut}>Log out</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

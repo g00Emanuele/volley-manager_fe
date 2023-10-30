@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import MyNav from "./components/navbar/MyNav";
 import AthletePrivatePage from "./pages/AthletePrivatePage";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
+import TeamPrivatePage from "./pages/TeamPrivatePage";
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route element={<ProtectedRoutes />}>
             <Route
-              path="/athleteprivatepage"
+              path="/loginAthlete"
               element={<AthletePrivatePage />}
+            />
+             <Route
+              path="/loginTeam"
+              element={<TeamPrivatePage />}
             />
           </Route>
         </Routes>
