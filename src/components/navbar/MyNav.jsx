@@ -5,7 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./myNavStyle.css";
 import LoginForm from "../form/loginForm/LoginForm";
-import SignupForm from "../form/signupForm/SignupForm";
+import SignupFormAthlete from "../form/signupForm/SignupFormAthlete";
+import SignupFormTeam from "../form/signupForm/SignupFormTeam";
 
 const MyNav = () => {
 
@@ -21,7 +22,8 @@ const MyNav = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-              <SignupForm />
+              <SignupFormAthlete />
+              <SignupFormTeam/>
               <LoginForm />
             <Nav.Link href="/" onClick={handleLogOut}>Log out</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
