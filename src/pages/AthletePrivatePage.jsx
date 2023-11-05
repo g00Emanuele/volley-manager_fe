@@ -1,5 +1,6 @@
 import React from 'react'
 import useSession from '../custom-hooks/session'
+import AthletesSection from '../components/sections/team-sections/AthletesSection'
 
 const AthletePrivatePage = () => {
 
@@ -7,7 +8,7 @@ const AthletePrivatePage = () => {
   console.log(session)
   
   return (
-    <div>AthletePrivatePage</div>
+    <div></div>
   )
 }
 
