@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Nav, Form } from "react-bootstrap";
+import { NavDropdown, Form } from "react-bootstrap";
 import { nanoid } from "nanoid";
 
 const SignupFormTeam = () => {
@@ -73,9 +73,9 @@ const SignupFormTeam = () => {
   };
   return (
     <>
-      <Nav.Link variant="primary" onClick={handleShow}>
-        Subscribe as team
-      </Nav.Link>
+      <NavDropdown.Item variant="primary" onClick={handleShow}>
+        As a team
+      </NavDropdown.Item>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

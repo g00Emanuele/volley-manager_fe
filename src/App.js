@@ -5,6 +5,7 @@ import MyNav from "./components/navbar/MyNav";
 import AthletePrivatePage from "./pages/AthletePrivatePage";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 import TeamPrivatePage from "./pages/TeamPrivatePage";
+import MyFooter from "./components/footer/MyFooter";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             />
           </Route>
         </Routes>
+        <MyFooter/>
       </BrowserRouter>
     </>
   );

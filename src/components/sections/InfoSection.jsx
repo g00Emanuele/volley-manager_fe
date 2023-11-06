@@ -9,10 +9,17 @@ const InfoSection = () => {
       <div className="row">
         <InfoCard 
         icon={<FaVolleyball size={80}/>} 
-        title='Web app facile da usare'
-        desc='Il nostro sito ha comandi semplici intuitivi'/>
-        <InfoCard />
-        <InfoCard />
+        title='Easy-to-use web app'
+        desc='Do every task intuitively'/>
+        <InfoCard 
+        icon={<FaVolleyball size={80}/>} 
+        title='Easy-to-use web app'
+        desc='Do every task intuitively'/>
+        <InfoCard 
+        icon={<FaVolleyball size={80}/>} 
+        title='Easy-to-use web app'
+        desc='Do every task intuitively'/>
+       
       </div>
     </div>
   );

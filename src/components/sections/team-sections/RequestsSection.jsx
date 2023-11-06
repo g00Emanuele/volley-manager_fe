@@ -6,7 +6,7 @@ import { Button, Container, Row, Col, Modal } from "react-bootstrap";
 import "react-responsive-pagination/themes/classic.css";
 import { nanoid } from "nanoid";
 
-const AthletesSection = ({}) => {
+const RequestsSection = () => {
   const [athletesData, setAthletesData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const AthletesSection = ({}) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/athletes/byTeam?team=${id}&page=${currentPage}`,
+        `${process.env.REACT_APP_BASE_URL}/athletes/byTeamRequest?requestedTeam=${id}&page=${currentPage}`,
         {
           headers: {
             Authorization: `${token}`,
@@ -30,9 +30,8 @@ const AthletesSection = ({}) => {
         }
       );
       const data = await response.json();
-      setAthletesData(data.athletesByTeam);
+      setAthletesData(data.athletesByTeamRequest);
       setData(data);
-      console.log(data);
       setLoading(false);
     } catch (error) {
       if (error) setError(error);
@@ -45,15 +44,17 @@ const AthletesSection = ({}) => {
 
   useEffect(() => {
     getAthletesData();
+    console.log(athletesData)
   }, [currentPage]);
 
   return (
     <>
-      <Container className="fluid">
+      <Container className="bg-light h-100">
         <Row>
-          <h1 className="py-3">Athletes</h1>
+          <h1 className="my-3">Requests</h1>
           {error && <h1>Loading error</h1>}
           {!error && loading && <h1>Loading...</h1>}
+          {!error && !loading && athletesData.length < 1 && <h3>No join requests at the moment</h3>}
           {!error &&
             !loading &&
             athletesData &&
@@ -65,7 +66,7 @@ const AthletesSection = ({}) => {
                   role={athlete.role}
                   name={athlete.name}
                   surname={athlete.surname}
-                  cardWidth={3}
+                  cardWidth={6}
                   id={athlete._id}
                   token={token}
                 />
@@ -88,4 +89,4 @@ const AthletesSection = ({}) => {
   );
 };
 
-export default AthletesSection;
+export default RequestsSection;

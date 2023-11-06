@@ -7,10 +7,10 @@ const MainJumbotron = () => {
     <div className="container-fluid">
       <div className=" row jumbotron d-flex justify-content-between">
         <div className="col-lg-8 jumbotron-text">
-          <h1 className="text-center">Gestisci una squadra di pallavolo?</h1>
-          <span className="pb-5">Ti aiutiamo noi</span>
+          <h1 className="text-center">Manage your volleyball team the smart way!</h1>
+          <span className="pb-5">Try it out</span>
           <button type="button" className="btn btn-warning">
-            Scopri come
+            Have a look
           </button>
         </div>
         <div className="col-sm-12 col-lg-4 d-flex justify-content-end">

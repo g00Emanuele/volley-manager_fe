@@ -1,21 +1,57 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./AthleteCardStyle.css";
+import { BsFillTrashFill } from "react-icons/bs";
 
-const AthleteCard = ({cover, name, role}) => {
+const AthleteCard = ({ cover, name, role, surname, cardWidth, id, token }) => {
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const deleteAthlete = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/athletes/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+      const data = response.json();
+      setLoading(false);
+      // window.location.reload();
+    } catch (error) {
+      if (error) setError(error);
+    }
+  };
+
   return (
-    <div className='col'><div className="card mb-3">
-    <div className="row g-0">
-      <div className="col-md-4">
-        <img src={cover} className="img-fluid rounded-start" alt="cover"/>
-      </div>
-      <div className="col-md-8">
-        <div className="card-body">
-          <h5 className="card-title">{name}</h5>
-          <p className="card-text">{role}</p>
+    <div className={`col-lg-${cardWidth}`}>
+      <div className="single_advisor_profile wow fadeInUp">
+        <div
+          className="advisor_thumb d-flex justify-content-center"
+          style={{ height: "15em" }}
+        >
+          <img
+            className="rounded"
+            src={cover}
+            alt=""
+            style={{ maxWidth: "100%" }}
+          />
         </div>
+        <div className="single_advisor_details_info">
+          <h6>{name}</h6>
+          <h6>{surname}</h6>
+          <p className="designation my-2">{role}</p>
+          <a href="#" onClick={deleteAthlete}>
+            <BsFillTrashFill color="red" size={20} />
+          </a>
+        </div>
+        <div></div>
       </div>
     </div>
-  </div></div>
-  )
-}
+  );
+};
 
-export default AthleteCard
+export default AthleteCard;

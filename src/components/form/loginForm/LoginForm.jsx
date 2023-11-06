@@ -71,10 +71,10 @@ const LoginForm = () => {
               <option
                 value="loginAthlete"
               >
-                Atleta
+                Athlete
               </option>
               <option value="loginTeam">
-                Squadra
+                Team
               </option>
             </Form.Select>
 
