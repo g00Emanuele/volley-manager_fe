@@ -5,6 +5,7 @@ import ResponsivePagination from "react-responsive-pagination";
 import { Button, Container, Row, Col, Modal } from "react-bootstrap";
 import "react-responsive-pagination/themes/classic.css";
 import { nanoid } from "nanoid";
+import { TailSpin } from "react-loader-spinner";
 
 const AthletesSection = ({}) => {
   const [athletesData, setAthletesData] = useState([]);
@@ -49,39 +50,49 @@ const AthletesSection = ({}) => {
 
   return (
     <>
-      <Container className="fluid">
+      <Container fluid>
         <Row>
           <h1 className="py-3">Athletes</h1>
           {error && <h1>Loading error</h1>}
-          {!error && loading && <h1>Loading...</h1>}
+          {!error && loading && (
+            <TailSpin
+            height="80"
+            width="80"
+            color="rgba(2, 83, 185, 1)"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          )}
           {!error &&
             !loading &&
             athletesData &&
             athletesData.map((athlete) => {
               return (
-                <AthleteCard
-                  key={nanoid()}
-                  cover={athlete.cover}
-                  role={athlete.role}
-                  name={athlete.name}
-                  surname={athlete.surname}
-                  cardWidth={3}
-                  id={athlete._id}
-                  token={token}
-                />
+                <Col sm={12} md={6} lg={4} xl={3}>
+                  <AthleteCard
+                    key={nanoid()}
+                    cover={athlete.cover}
+                    role={athlete.role}
+                    name={athlete.name}
+                    surname={athlete.surname}
+                    athleteId={athlete._id}
+                    token={token}
+                  />
+                </Col>
               );
             })}
         </Row>
         <Row>
-          {athletesData.length > 8 && (
-            <Col className="m-3">
-              <ResponsivePagination
-                current={currentPage}
-                total={athletesData && data.totalPages}
-                onPageChange={handlePagination}
-              />
-            </Col>
-          )}
+          <Col className="m-3">
+            <ResponsivePagination
+              current={currentPage}
+              total={athletesData && data.totalPages}
+              onPageChange={handlePagination}
+            />
+          </Col>
         </Row>
       </Container>
     </>

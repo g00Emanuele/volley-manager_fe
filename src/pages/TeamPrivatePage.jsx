@@ -3,19 +3,19 @@ import useSession from "../custom-hooks/session";
 import AthletesSection from "../components/sections/team-sections/AthletesSection";
 import RequestsSection from "../components/sections/team-sections/RequestsSection";
 import { Row, Col, Container } from "react-bootstrap";
-import "../colors/gradient.css"
+import "../colors/gradient.css";
 
 const TeamPrivatePage = () => {
   const session = useSession();
   console.log(session);
 
   return (
-    <Container fluid className="aqua">
+    <Container fluid>
       <Row>
-        <Col className="col-sm-12 col-md-8">
+        <Col sm={12} md={7} xl={8} className="aqua">
           <AthletesSection />
         </Col>
-        <Col className="col-sm-12 col-md-4">
+        <Col sm={12} md={5} xl={4} className="bg-light">
           <RequestsSection />
         </Col>
       </Row>
