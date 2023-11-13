@@ -17,6 +17,6 @@ with team mates
 
 ## Tools
 
-- Front-end: ReactJS - Bootstrap
-- Back-end: NodeJS - ExpressJS
+- Front-end: ReactJS - Bootstrap 
+- Back-end: NodeJS - ExpressJS (https://github.com/g00Emanuele/volley-manager_be)
 - Database: MongoDB - Mongoose
