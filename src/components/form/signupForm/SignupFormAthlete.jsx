@@ -296,7 +296,7 @@ const SignupForm = () => {
             Close
           </Button>
           {modalSuccess && (
-            <Button variant="success" onClick={handleClose}>
+            <Button variant="success">
               <LoginForm />
             </Button>
           )}
