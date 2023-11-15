@@ -13,7 +13,7 @@ const MainJumbotron = () => {
             Have a look
           </button>
         </div>
-        <div className="col-sm-12 col-lg-4 d-flex justify-content-end">
+        <div className="col-sm-12 col-lg-4 d-flex justify-content-end px-0">
           <img
             width={400}
             src={jumboImage}
