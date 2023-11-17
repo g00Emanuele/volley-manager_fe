@@ -54,7 +54,7 @@ const PersonalSection = ({ athleteData }) => {
             <div className="p-4">
               <h5 className="mb-0">{athleteData.name}</h5>
               <h5 className="mb-3">{athleteData.surname}</h5>
-              {athleteData.team && <p className="small text-muted">{athleteData.team}</p>}
+              {athleteData.team && <p className="small text-muted">{team.name}</p>}
               {athleteData && athleteData.requestedTeam && (
                 <p className="small text-muted">
                   Your request to {team.name} has not been

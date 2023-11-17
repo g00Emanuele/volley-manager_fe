@@ -35,8 +35,8 @@ const AthletesSection = ({}) => {
       setData(data);
       console.log(data);
       setLoading(false);
-    } catch (error) {
-      if (error) setError(error);
+    } catch (err) {
+      if (err) setError(err);
     }
   };
 

@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 import { TailSpin } from "react-loader-spinner";
 import LoginForm from "../loginForm/LoginForm";
 
+
 const SignupForm = () => {
   const [show, setShow] = useState(false);
   const [teams, setTeams] = useState([]);
@@ -31,8 +32,11 @@ const SignupForm = () => {
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/athletes/cloudUpload`,
         {
+          headers:{
+            'Content-Type':'application/json'
+          },
           method: "POST",
-          body: fileData,
+          body: JSON.stringify(fileData),
         }
       );
       setLoading(false);

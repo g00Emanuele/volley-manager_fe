@@ -17,7 +17,6 @@ const ControlModal = ({ handleFunction, icon }) => {
         <Modal.Header closeButton>
           <Modal.Title>Are you sure?</Modal.Title>
         </Modal.Header>
-        <Modal.Body>This new athlete will be part of your team</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
