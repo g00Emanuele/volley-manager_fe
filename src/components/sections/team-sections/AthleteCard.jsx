@@ -59,7 +59,6 @@ const AthleteCard = ({
         }
       );
       const data = await response.json();
-      console.log(data);
       setLoading(false);
       window.location.reload();
     } catch (error) {

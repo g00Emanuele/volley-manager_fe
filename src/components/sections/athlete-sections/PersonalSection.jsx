@@ -18,7 +18,6 @@ const PersonalSection = ({ athleteData }) => {
       const data = await response.json();
       setTeam(data.team);
       setLoading(false);
-      console.log(team);
       return await data;
     } catch (err) {
       setError(err);

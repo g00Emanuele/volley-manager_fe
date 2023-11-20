@@ -45,7 +45,6 @@ const RequestsSection = () => {
 
   useEffect(() => {
     getAthletesData();
-    console.log(athletesData);
   }, [currentPage]);
 
   return (

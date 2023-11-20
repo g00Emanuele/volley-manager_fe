@@ -27,6 +27,13 @@ const MyNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            {!session && (
+              <NavDropdown title="Subscribe" id="basic-nav-dropdown">
+                <SignupFormAthlete />
+                <SignupFormTeam />
+              </NavDropdown>
+            )}
             {session && session.team && (
               <Nav.Link href="/loginAthlete">My page</Nav.Link>
             )}
@@ -34,12 +41,7 @@ const MyNav = () => {
               <Nav.Link href="/loginTeam">My page</Nav.Link>
             )}
             {!session && <LoginForm />}
-            {!session && (
-              <NavDropdown title="Subscribe" id="basic-nav-dropdown">
-                <SignupFormAthlete />
-                <SignupFormTeam />
-              </NavDropdown>
-            )}
+
             <Nav.Link href="/" onClick={handleLogOut}>
               Log out
             </Nav.Link>

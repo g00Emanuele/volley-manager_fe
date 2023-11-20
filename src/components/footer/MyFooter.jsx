@@ -12,7 +12,7 @@ const MyFooter = () => {
                 <i className="fas fa-gem me-3 text-secondary"></i>Volley Manager
               </h6>
               <p>
-                This website is a demo
+                v2.0
               </p>
             </div>
     

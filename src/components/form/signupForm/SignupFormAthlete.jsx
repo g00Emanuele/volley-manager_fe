@@ -62,7 +62,6 @@ const SignupForm = () => {
       [name]: value,
     });
 
-    console.log(signupData);
   };
 
   const handleSubmit = async (e) => {
@@ -77,7 +76,6 @@ const SignupForm = () => {
         ...signupData,
         cover: uploadCover.cover,
       };
-      console.log(finalBody);
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/athletes/create`,
         {
@@ -97,7 +95,6 @@ const SignupForm = () => {
       return data;
     } catch (err) {
       if (err) setError(err);
-      console.log(err);
     }
   };
 
@@ -115,7 +112,6 @@ const SignupForm = () => {
 
   useEffect(() => {
     fetchTeams();
-    console.log(teams);
   }, []);
   return (
     <>

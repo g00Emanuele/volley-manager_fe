@@ -31,7 +31,6 @@ const EventSection = () => {
         }
       );
       const data = await response.json();
-      console.log(data.eventsByTeam);
       setEvents(data.eventsByTeam);
       setEventsData(data);
       setLoading(false);

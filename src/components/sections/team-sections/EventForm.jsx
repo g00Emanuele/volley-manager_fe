@@ -21,7 +21,6 @@ const EventForm = () => {
       [name]: value,
       team: session.id,
     });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +46,6 @@ const EventForm = () => {
         setModalSuccess(true);
         console.log(modalSuccess);
       }
-      console.log(responseData);
       setLoading(false);
       return data;
     } catch (err) {

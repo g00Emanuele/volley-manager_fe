@@ -54,7 +54,6 @@ const SignupFormTeam = () => {
       ...signupData,
       [name]: value,
     });
-    console.log(signupData);
   };
 
   const handleSubmit = async (e) => {
@@ -68,7 +67,6 @@ const SignupFormTeam = () => {
         ...signupData,
         cover: uploadCover.cover,
       };
-      console.log(finalBody);
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/teams/create`,
         {

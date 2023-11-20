@@ -33,7 +33,6 @@ const AthletesSection = ({}) => {
       const data = await response.json();
       setAthletesData(data.athletesByTeam);
       setData(data);
-      console.log(data);
       setLoading(false);
     } catch (err) {
       if (err) setError(err);
