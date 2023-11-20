@@ -16,8 +16,7 @@ const MyNav = () => {
     localStorage.clear();
   };
 
-  const session = useSession()
-
+  const session = useSession();
 
   return (
     <Navbar expand="lg" className="stellar">
@@ -28,11 +27,19 @@ const MyNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-           {!session &&  <LoginForm />}
-            {!session && <NavDropdown title="Subscribe" id="basic-nav-dropdown">
-              <SignupFormAthlete />
-              <SignupFormTeam />
-            </NavDropdown>}
+            {session && session.team && (
+              <Nav.Link href="/loginAthlete">My page</Nav.Link>
+            )}
+            {session && !session.team && (
+              <Nav.Link href="/loginTeam">My page</Nav.Link>
+            )}
+            {!session && <LoginForm />}
+            {!session && (
+              <NavDropdown title="Subscribe" id="basic-nav-dropdown">
+                <SignupFormAthlete />
+                <SignupFormTeam />
+              </NavDropdown>
+            )}
             <Nav.Link href="/" onClick={handleLogOut}>
               Log out
             </Nav.Link>

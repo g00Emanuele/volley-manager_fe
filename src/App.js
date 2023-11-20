@@ -6,6 +6,7 @@ import AthletePrivatePage from "./pages/AthletePrivatePage";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 import TeamPrivatePage from "./pages/TeamPrivatePage";
 import MyFooter from "./components/footer/MyFooter";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               element={<TeamPrivatePage />}
             />
           </Route>
+          <Route path="*" element={<NotFoundPage/>} />
         </Routes>
         <MyFooter/>
       </BrowserRouter>

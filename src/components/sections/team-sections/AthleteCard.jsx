@@ -33,7 +33,7 @@ const AthleteCard = ({
           },
         }
       );
-      const data = response.json();
+      const data = await response.json();
       setLoading(false);
       window.location.reload();
     } catch (error) {
@@ -98,7 +98,7 @@ const AthleteCard = ({
             <h6>{name}</h6>
             <h6>{surname}</h6>
             <p className="designation my-2">{role}</p>
-            <a href="#">
+            <a href="">
               <ControlModal
                 handleFunction={deleteAthlete}
                 icon={<BsFillTrashFill color="red" size={30} />}

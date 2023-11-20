@@ -5,6 +5,7 @@ import RequestsSection from "../components/sections/team-sections/RequestsSectio
 import { Row, Col, Container } from "react-bootstrap";
 import "../colors/gradient.css";
 import EventForm from "../components/sections/team-sections/EventForm";
+import EventSection from "../components/sections/athlete-sections/EventSection";
 
 const TeamPrivatePage = () => {
   const session = useSession();
@@ -18,6 +19,11 @@ const TeamPrivatePage = () => {
         </Col>
         <Col sm={12} md={5} xl={4} className="bg-light">
           <RequestsSection />
+        </Col>
+      </Row>
+      <Row>
+        <Col >
+          <EventSection />
         </Col>
       </Row>
       <Row>

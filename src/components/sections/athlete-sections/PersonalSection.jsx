@@ -44,7 +44,7 @@ const PersonalSection = ({ athleteData }) => {
         />
       )}
       {!error && !loading && team &&
-        <div className="card shadow-sm border-0 rounded">
+        <div className="card shadow-sm border-0 rounded m-3">
           <div className="card-body p-0">
             <img
               src={athleteData.cover}

@@ -3,7 +3,7 @@ import useSession from "../../../custom-hooks/session";
 import EventCard from "./EventCard";
 import { TailSpin } from "react-loader-spinner";
 import ResponsivePagination from "react-responsive-pagination";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { nanoid } from "nanoid";
 import "react-responsive-pagination/themes/classic.css";
 
@@ -23,7 +23,7 @@ const EventSection = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/events/byTeam?team=${team}&page=${currentPage}`,
+        `${process.env.REACT_APP_BASE_URL}/events/byTeam?team=${team ? team: session.id}&page=${currentPage}`,
         {
           headers: {
             Authorization: `${token}`,
@@ -49,8 +49,10 @@ const EventSection = () => {
   }, [currentPage]);
 
   return (
-    <>
+    <Container fluid className="mb-4">
     <h1 className="py-3">Events</h1>
+
+    {events.length < 1 && <h3>No scheduled events</h3>}
       {error && <h1>Error</h1>}
       {!error && loading && (
         <TailSpin
@@ -74,6 +76,7 @@ const EventSection = () => {
               title={event.title}
               content={event.content}
               team={event.team.name}
+              eventId={event._id}
             />
           );
         })}
@@ -88,7 +91,7 @@ const EventSection = () => {
           </Col>
         </Row>
       )}
-    </>
+    </Container>
   );
 };
 
