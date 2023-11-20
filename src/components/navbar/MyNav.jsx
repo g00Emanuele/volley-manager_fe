@@ -42,9 +42,11 @@ const MyNav = () => {
             )}
             {!session && <LoginForm />}
 
-            <Nav.Link href="/" onClick={handleLogOut}>
-              Log out
-            </Nav.Link>
+            {session && (
+              <Nav.Link href="/" onClick={handleLogOut}>
+                Log out
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
