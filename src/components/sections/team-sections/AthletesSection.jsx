@@ -55,24 +55,23 @@ const AthletesSection = ({}) => {
           {error && <h1>Loading error</h1>}
           {!error && loading && (
             <TailSpin
-            height="80"
-            width="80"
-            color="rgba(2, 83, 185, 1)"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
+              height="80"
+              width="80"
+              color="rgba(2, 83, 185, 1)"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
           )}
           {!error &&
             !loading &&
             athletesData &&
             athletesData.map((athlete) => {
               return (
-                <Col sm={12} md={6} lg={4} xl={3}>
+                <Col key={nanoid()} sm={12} md={6} lg={4} xl={3}>
                   <AthleteCard
-                    key={nanoid()}
                     cover={athlete.cover}
                     role={athlete.role}
                     name={athlete.name}

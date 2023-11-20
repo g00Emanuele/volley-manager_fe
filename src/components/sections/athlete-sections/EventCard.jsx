@@ -40,12 +40,10 @@ const EventCard = ({ title, content, team, eventId }) => {
           <Card.Text>{content}</Card.Text>
           <Card.Subtitle className="mb-2 text-muted">{team}</Card.Subtitle>
           {!session.team && (
-            <a href="#">
               <ControlModal
                 handleFunction={deleteEvent}
                 icon={<BsFillTrashFill color="red" size={30} />}
               />
-            </a>
           )}
         </Card.Body>
       </Card>

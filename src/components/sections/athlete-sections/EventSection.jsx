@@ -7,7 +7,6 @@ import { Row, Col, Container } from "react-bootstrap";
 import { nanoid } from "nanoid";
 import "react-responsive-pagination/themes/classic.css";
 
-
 const EventSection = () => {
   const session = useSession();
   const [error, setError] = useState(null);
@@ -23,7 +22,9 @@ const EventSection = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/events/byTeam?team=${team ? team: session.id}&page=${currentPage}`,
+        `${process.env.REACT_APP_BASE_URL}/events/byTeam?team=${
+          team ? team : session.id
+        }&page=${currentPage}`,
         {
           headers: {
             Authorization: `${token}`,
@@ -44,14 +45,14 @@ const EventSection = () => {
   };
 
   useEffect(() => {
-    getEvents()
+    getEvents();
   }, [currentPage]);
 
   return (
     <Container fluid className="mb-4">
-    <h1 className="py-3">Events</h1>
+      <h1 className="py-3">Events</h1>
 
-    {events.length < 1 && <h3>No scheduled events</h3>}
+      {events.length < 1 && <h3>No scheduled events</h3>}
       {error && <h1>Error</h1>}
       {!error && loading && (
         <TailSpin
@@ -66,12 +67,12 @@ const EventSection = () => {
         />
       )}
       {!error &&
-        !loading && 
+        !loading &&
         events &&
         events.map((event) => {
           return (
             <EventCard
-            key={nanoid()}
+              key={nanoid()}
               title={event.title}
               content={event.content}
               team={event.team.name}

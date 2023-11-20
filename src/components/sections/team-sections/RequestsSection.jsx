@@ -73,9 +73,8 @@ const RequestsSection = () => {
             athletesData &&
             athletesData.map((athlete) => {
               return (
-                <Col sm={12} lg={6}>
+                <Col key={nanoid()} sm={12} lg={6}>
                   <AthleteCard
-                    key={nanoid()}
                     cover={athlete.cover}
                     role={athlete.role}
                     name={athlete.name}

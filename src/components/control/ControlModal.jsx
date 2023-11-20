@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Nav from "react-bootstrap/Nav"
 
 const ControlModal = ({ handleFunction, icon }) => {
   const [show, setShow] = useState(false);
@@ -11,7 +12,7 @@ const ControlModal = ({ handleFunction, icon }) => {
 
   return (
     <>
-      <a onClick={handleShow}>{icon}</a>
+      <Nav.Link onClick={handleShow}>{icon}</Nav.Link>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

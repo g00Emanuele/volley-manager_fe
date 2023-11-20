@@ -97,20 +97,18 @@ const AthleteCard = ({
             <h6>{name}</h6>
             <h6>{surname}</h6>
             <p className="designation my-2">{role}</p>
-            <a href="">
-              <ControlModal
+             <div className="d-flex justify-content-between">
+             <ControlModal
                 handleFunction={deleteAthlete}
                 icon={<BsFillTrashFill color="red" size={30} />}
               />
-            </a>
             {request && (
-              <a href="#">
                 <ControlModal
                   handleFunction={submitAthlete}
                   icon={<AiOutlineCheckCircle color="green" size={30} />}
                 />
-              </a>
             )}
+             </div> 
           </div>
         </div>
       )}
